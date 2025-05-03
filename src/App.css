@@ -1,28 +1,17 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.card {
-  padding: 2em;
-}
-
 .logo {
-  height: 2em;
+  height: 6em;
   padding: 0.5em;
   will-change: filter;
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 3em #646cffaa);
+  filter: drop-shadow(0 0 4em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 3em #61dafbaa);
+  filter: drop-shadow(0 0 4em #61dafbaa);
 }
 .logo.mui:hover {
-  filter: drop-shadow(0 0 3em #4bc4e6aa);
+  filter: drop-shadow(0 0 4em #4bc4e6aa);
 }
 
 @keyframes logo-spin {
@@ -35,7 +24,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(3) .logo {
+  a:nth-of-type(1) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }

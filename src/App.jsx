@@ -1,25 +1,78 @@
-import { useState } from 'react';
-import './App.css';
+import React, { useMemo, useState, useEffect } from 'react';
+import { ThemeProvider, createTheme, CssBaseline, Icon } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 import TopBar from './TopBar.jsx';
+import viteLogo from './assets/vite.svg';
+import reactLogo from './assets/react.svg';
+import muiLogo from './assets/mui.svg';
+import './App.css';
 
-export default function App() {
-  const [count, setCount] = useState(0);
+function App() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [darkMode, setDarkMode] = useState(prefersDark);
+
+  // Update dark mode if system preference changes
+  useEffect(() => {
+    const listener = (e) => setDarkMode(e.matches);
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', listener);
+    return () => mediaQuery.removeEventListener('change', listener);
+  }, []);
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: darkMode ? 'dark' : 'light',
+        },
+      }),
+    [darkMode]
+  );
 
   return (
-    <>
-      <div className="top-bar">
-        <TopBar />
-      </div>
-      <div className="content"></div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <TopBar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Box
+        sx={{
+          p: 2,
+          fontWeight: 'light',
+          textAlign: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
+          I made a website.
+        </Typography>
+        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
+          Kinda.
+        </Typography>
+        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
+          These things did most of the work:
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          textAlign: 'center',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <IconButton href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </IconButton>
+        <IconButton href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </IconButton>
+        <IconButton href="https://mui.com" target="_blank">
+          <img src={muiLogo} className="logo mui" alt="Vite logo" />
+        </IconButton>
+      </Box>
+    </ThemeProvider>
   );
 }
+
+export default App;

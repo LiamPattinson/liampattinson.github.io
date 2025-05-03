@@ -1,6 +1,5 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { useState, useEffect } from 'react';
 import Switch from '@mui/material/Switch';
 
 // Copied from MUI documentation
@@ -60,28 +59,11 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-function getColourTheme() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-
-export default function DarkModeToggle() {
-  const [colourTheme, setColourTheme] = useState(getColourTheme());
-
-  useEffect(() => {
-    document.documentElement.classList.remove('dark', 'light');
-    document.documentElement.classList.add(colourTheme);
-  }, [colourTheme]);
-
-  function toggleColourTheme() {
-    setColourTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  }
-
+export default function DarkModeToggle({ darkMode, setDarkMode }) {
   return (
     <DarkModeSwitch
-      checked={colourTheme === 'dark'}
-      onChange={toggleColourTheme}
+      checked={darkMode}
+      onChange={() => setDarkMode(!darkMode)}
       size="large"
       sx={{ m: 1 }}
     />

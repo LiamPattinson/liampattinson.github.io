@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import prettier from 'eslint-plugin-prettier';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import prettierConfig from './prettier.config.js';
 
 export default [
   { ignores: ['dist'] },
@@ -35,11 +36,7 @@ export default [
       'prettier/prettier': [
         'error',
         {
-          semi: true,
-          singleQuote: true,
-          trailingComma: 'es5',
-          printWidth: 80,
-          tabWidth: 2,
+          ...prettierConfig,
         },
       ],
     },
