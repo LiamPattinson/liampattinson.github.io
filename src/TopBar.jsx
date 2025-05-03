@@ -4,6 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 import { Box, Link } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import HomeIcon from '@mui/icons-material/Home';
+import CvIcon from '@mui/icons-material/Description';
 
 export default function TopBar({ darkMode, setDarkMode }) {
   return (
@@ -16,16 +18,33 @@ export default function TopBar({ darkMode, setDarkMode }) {
       }}
     >
       <Toolbar>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <Link variant="h6" color="inherit" underline="none" href="#">
-            LiamPattinson.com
-          </Link>
-        </Box>
-        <Box sx={{ alignItems: 'center' }}>
-          <IconButton href="https://www.github.com/LiamPattinson">
-            <GitHubIcon />
-          </IconButton>
-          <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexGrow: 1,
+          }}
+        >
+          <Box>
+            <Link variant="h6" color="inherit" underline="none" href="/">
+              LiamPattinson.com
+            </Link>
+          </Box>
+          <Box>
+            <IconButton href="/">
+              <HomeIcon />
+            </IconButton>
+            <IconButton href="/cv">
+              <CvIcon />
+            </IconButton>
+          </Box>
+          <Box>
+            <IconButton href="https://www.github.com/LiamPattinson">
+              <GitHubIcon />
+            </IconButton>
+            <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+          </Box>
         </Box>
       </Toolbar>
     </AppBar>
