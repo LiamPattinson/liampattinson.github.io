@@ -42,6 +42,8 @@ function App() {
     <Router>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <title>LiamPattinson</title>
+        <link rel="icon" type="image/png" href="/favicon.ico"></link>
         <TopBar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
