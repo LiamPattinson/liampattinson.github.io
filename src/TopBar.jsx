@@ -21,9 +21,9 @@ export default function TopBar({ darkMode, setDarkMode }) {
             LiamPattinson.com
           </Link>
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ alignItems: 'center' }}>
           <IconButton href="https://www.github.com/LiamPattinson">
-            <GitHubIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
+            <GitHubIcon />
           </IconButton>
           <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
         </Box>

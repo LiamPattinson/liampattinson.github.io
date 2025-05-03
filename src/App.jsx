@@ -56,20 +56,41 @@ function App() {
       <Box
         sx={{
           display: 'flex',
-          textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
+          flexWrap: 'wrap',
+          width: '100%',
+          gap: 2,
+          p: 2,
         }}
       >
-        <IconButton href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </IconButton>
-        <IconButton href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </IconButton>
-        <IconButton href="https://mui.com" target="_blank">
-          <img src={muiLogo} className="logo mui" alt="Vite logo" />
-        </IconButton>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            width: '50em',
+            gap: 2,
+            p: 2,
+          }}
+        >
+          <Box sx={{ p: 2 }}>
+            <IconButton href="https://react.dev" target="_blank">
+              <img src={reactLogo} className="logo react" alt="React logo" />
+            </IconButton>
+          </Box>
+          <Box sx={{ p: 2 }}>
+            <IconButton href="https://vite.dev" target="_blank">
+              <img src={viteLogo} className="logo" alt="Vite logo" />
+            </IconButton>
+          </Box>
+          <Box sx={{ p: 2 }}>
+            <IconButton href="https://mui.com" target="_blank">
+              <img src={muiLogo} className="logo mui" alt="Material UI logo" />
+            </IconButton>
+          </Box>
+        </Box>
       </Box>
     </ThemeProvider>
   );
