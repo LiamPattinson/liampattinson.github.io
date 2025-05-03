@@ -11,7 +11,7 @@ function App() {
 
   // Initialize dark mode state based on local storage or system preference
   const [darkMode, setDarkMode] = useState(() => {
-    const savedPreference = localStorage.getItem('darkMode');
+    const savedPreference = sessionStorage.getItem('darkMode');
     return savedPreference !== null ? JSON.parse(savedPreference) : prefersDark;
   });
 
@@ -25,7 +25,7 @@ function App() {
 
   // Save dark mode preference to local storage whenever it changes
   useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    sessionStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
   const theme = useMemo(
