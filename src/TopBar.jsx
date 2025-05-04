@@ -6,7 +6,7 @@ import DarkModeToggle from './DarkMode.jsx';
 export default function TopBar({ darkMode, setDarkMode }) {
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         width: '100%',
         color: darkMode ? '#f2f2f2' : '#636363',

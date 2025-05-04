@@ -16,7 +16,6 @@ function HomePageTextBox({ children }) {
     <Box
       sx={{
         p: 2,
-        fontWeight: 'light',
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
@@ -48,7 +47,6 @@ function HomePageImages({ children }) {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        p: 2,
       }}
     >
       <Box
@@ -58,7 +56,6 @@ function HomePageImages({ children }) {
           alignItems: 'center',
           flexWrap: 'wrap',
           width: '50em',
-          p: 2,
         }}
       >
         {React.Children.map(children, (child, index) => (
@@ -113,7 +110,7 @@ export default function Home() {
             <GitHub />
           </SvgIcon>
         </IconButton>
-        <IconButton href="/#/cv" target="_blank">
+        <IconButton href="/#/cv">
           <SvgIcon sx={{ width: '6em', height: '6em' }}>
             <CV />
           </SvgIcon>

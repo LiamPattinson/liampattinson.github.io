@@ -1,4 +1,4 @@
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -47,27 +47,30 @@ function App() {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/public/apple-touch-icon.png"
+          href="/apple-touch-icon.png"
         ></link>
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/public/favicon-32x32.png"
+          href="/favicon-32x32.png"
         ></link>
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/public/favicon-16x16.png"
+          href="/favicon-16x16.png"
         ></link>
-        <link rel="manifest" href="/public/site.webmanifest"></link>
+        <link rel="manifest" href="/site.webmanifest"></link>
         <TopBar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/cv" element={<CV />} />
-        </Routes>
+        <Box sx={{ mt: 10, mb: 5 }}>
+          {/* Margin to account for the AppBar */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/cv" element={<CV />} />
+          </Routes>
+        </Box>
       </ThemeProvider>
     </Router>
   );
