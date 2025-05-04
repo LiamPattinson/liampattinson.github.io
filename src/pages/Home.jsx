@@ -1,11 +1,12 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import viteLogo from '../assets/vite.svg';
-import reactLogo from '../assets/react.svg';
-import muiLogo from '../assets/mui.svg';
 import './logos.css';
+
+import { Description as CV, GitHub } from '@mui/icons-material';
+import { Box, Button, IconButton, SvgIcon, Typography } from '@mui/material';
+import React from 'react';
+
+import muiLogo from '../assets/mui.svg';
+import reactLogo from '../assets/react.svg';
+import viteLogo from '../assets/vite.svg';
 
 function HomePageTextBox({ children }) {
   // 'children' should be a string delmited by newlines.
@@ -102,6 +103,21 @@ export default function Home() {
             alt="Fortitude repository"
           />
         </Button>
+      </HomePageImages>
+      <HomePageTextBox>
+        {'Want to see more?\nCheck out my GitHub profile and CV:'}
+      </HomePageTextBox>
+      <HomePageImages>
+        <IconButton href="https://github.com/LiamPattinson" target="_blank">
+          <SvgIcon sx={{ width: '6em', height: '6em' }}>
+            <GitHub />
+          </SvgIcon>
+        </IconButton>
+        <IconButton href="/#/cv" target="_blank">
+          <SvgIcon sx={{ width: '6em', height: '6em' }}>
+            <CV />
+          </SvgIcon>
+        </IconButton>
       </HomePageImages>
     </>
   );

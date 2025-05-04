@@ -1,6 +1,6 @@
-import React from 'react';
+import { Switch } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Switch from '@mui/material/Switch';
+import React from 'react';
 
 // Copied from MUI documentation
 const DarkModeSwitch = styled(Switch)(({ theme }) => ({

@@ -1,11 +1,7 @@
+import { Description as CV, GitHub, Home } from '@mui/icons-material';
+import { AppBar, Box, IconButton, Link, Toolbar } from '@mui/material';
+
 import DarkModeToggle from './DarkMode.jsx';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import { Box, Link } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import HomeIcon from '@mui/icons-material/Home';
-import CvIcon from '@mui/icons-material/Description';
 
 export default function TopBar({ darkMode, setDarkMode }) {
   return (
@@ -33,15 +29,15 @@ export default function TopBar({ darkMode, setDarkMode }) {
           </Box>
           <Box>
             <IconButton href="/#/home">
-              <HomeIcon />
+              <Home />
             </IconButton>
             <IconButton href="/#/cv">
-              <CvIcon />
+              <CV />
             </IconButton>
           </Box>
           <Box>
             <IconButton href="https://www.github.com/LiamPattinson">
-              <GitHubIcon />
+              <GitHub />
             </IconButton>
             <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
           </Box>

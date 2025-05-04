@@ -1,9 +1,10 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import TopBar from './TopBar.jsx';
-import Home from './pages/Home.jsx';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import React, { useEffect, useMemo, useState } from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+
 import CV from './pages/CV.jsx';
+import Home from './pages/Home.jsx';
+import TopBar from './TopBar.jsx';
 
 function App() {
   // Get the user's system preference for dark mode
