@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -6,117 +7,100 @@ import reactLogo from '../assets/react.svg';
 import muiLogo from '../assets/mui.svg';
 import './logos.css';
 
+function HomePageTextBox({ children }) {
+  // 'children' should be a string delmited by newlines.
+  // Each line will be rendered as a separate Typography component
+  // with significant padding between them.
+  return (
+    <Box
+      sx={{
+        p: 2,
+        fontWeight: 'light',
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      {children.split('\n').map((str, index) => (
+        <Typography key={index} variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
+          {str}
+        </Typography>
+      ))}
+    </Box>
+  );
+}
+
+function HomePageImages({ children }) {
+  // A Box for displaying images on the homepage.
+  // It should keep the images centered and evenly spaced,
+  // even if the screen is resized.
+  // The boxes below do the following:
+  // - Center the images in the middle of the screen, take up
+  //   the full width.
+  // - Place images inside a flexbox that is centered and
+  //   evenly spaces things inside.
+  // - Give each image a bit of padding.
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        p: 2,
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          width: '50em',
+          p: 2,
+        }}
+      >
+        {React.Children.map(children, (child, index) => (
+          <Box key={index} sx={{ p: 2 }}>
+            {child}
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      <Box
-        sx={{
-          p: 2,
-          fontWeight: 'light',
-          textAlign: 'center',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
-          I made a website.
-        </Typography>
-        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
-          Kinda.
-        </Typography>
-        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
-          These things did most of the work:
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          width: '100%',
-          gap: 2,
-          p: 2,
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            width: '50em',
-            gap: 2,
-            p: 2,
-          }}
+      <HomePageTextBox>
+        {'I made a website.\nKinda.\nThese things did most of the work:'}
+      </HomePageTextBox>
+      <HomePageImages>
+        <IconButton href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </IconButton>
+        <IconButton href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </IconButton>
+        <IconButton href="https://mui.com" target="_blank">
+          <img src={muiLogo} className="logo mui" alt="Material UI logo" />
+        </IconButton>
+      </HomePageImages>
+      <HomePageTextBox>{"Here's another cool thing I made:"}</HomePageTextBox>
+      <HomePageImages>
+        <Button
+          href="https://www.github.com/PlasmaFAIR/Fortitude"
+          target="_blank"
         >
-          <Box sx={{ p: 2 }}>
-            <IconButton href="https://react.dev" target="_blank">
-              <img src={reactLogo} className="logo react" alt="React logo" />
-            </IconButton>
-          </Box>
-          <Box sx={{ p: 2 }}>
-            <IconButton href="https://vite.dev" target="_blank">
-              <img src={viteLogo} className="logo" alt="Vite logo" />
-            </IconButton>
-          </Box>
-          <Box sx={{ p: 2 }}>
-            <IconButton href="https://mui.com" target="_blank">
-              <img src={muiLogo} className="logo mui" alt="Material UI logo" />
-            </IconButton>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          p: 2,
-          fontWeight: 'light',
-          textAlign: 'center',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Typography variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
-          Here are some other cool things I made:
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          width: '100%',
-          gap: 2,
-          p: 2,
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            width: '50em',
-            gap: 2,
-            p: 2,
-          }}
-        >
-          <Box>
-            <Button
-              href="https://www.github.com/PlasmaFAIR/Fortitude"
-              target="_blank"
-            >
-              <img
-                src="https://opengraph.githubassets.com/%3Cany_hash_number%3E/PlasmaFAIR/Fortitude"
-                border="1px solid black"
-                style={{ height: '12em', width: 'auto' }}
-                alt="Fortitude repository"
-              />
-            </Button>
-          </Box>
-        </Box>
-      </Box>
+          <img
+            src="https://opengraph.githubassets.com/%3Cany_hash_number%3E/PlasmaFAIR/Fortitude"
+            border="1px solid black"
+            style={{ maxHeight: '100%', maxWidth: '100%', flexShrink: 1 }}
+            alt="Fortitude repository"
+          />
+        </Button>
+      </HomePageImages>
     </>
   );
 }
