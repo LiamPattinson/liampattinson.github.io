@@ -32,10 +32,10 @@ export default function TopBar({ darkMode, setDarkMode }) {
             </Link>
           </Box>
           <Box>
-            <IconButton href="/">
+            <IconButton href="/#/home">
               <HomeIcon />
             </IconButton>
-            <IconButton href="/cv">
+            <IconButton href="/#/cv">
               <CvIcon />
             </IconButton>
           </Box>
