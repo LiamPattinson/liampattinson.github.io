@@ -4,15 +4,6 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 6em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 6em #61dafbaa);
-}
-.logo.mui:hover {
-  filter: drop-shadow(0 0 6em #4bc4e6aa);
-}
 
 @keyframes logo-spin {
   from {
@@ -24,7 +15,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .logo.react {
+  .logo.spin {
     animation: logo-spin infinite 20s linear;
   }
 }

@@ -71,6 +71,8 @@ function HomePageImages({ children }) {
 }
 
 export default function Home() {
+  // TODO: Figure out how to get logo styling and animations to
+  // work without the CSS file.
   return (
     <>
       <HomePageTextBox>
@@ -78,13 +80,13 @@ export default function Home() {
       </HomePageTextBox>
       <HomePageImages>
         <IconButton href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo spin" alt="React logo" />
         </IconButton>
         <IconButton href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </IconButton>
         <IconButton href="https://mui.com" target="_blank">
-          <img src={muiLogo} className="logo mui" alt="Material UI logo" />
+          <img src={muiLogo} className="logo" alt="Material UI logo" />
         </IconButton>
       </HomePageImages>
       <HomePageTextBox>{"Here's another cool thing I made:"}</HomePageTextBox>
