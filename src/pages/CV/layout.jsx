@@ -16,7 +16,7 @@ function Paragraph({ children }) {
 }
 
 function Heading({ main, children }) {
-  let variant = main !== undefined ? 'h1' : 'h2';
+  let variant = main !== undefined ? 'h2' : 'h3';
   return (
     <Typography
       variant={variant}
@@ -62,7 +62,7 @@ function TwoBox({ title, img, text, img_left, main }) {
     <Box
       sx={{
         p: 2,
-        width: { xs: '100%', md: img_width },
+        width: { xs: '100%', md: main === undefined ? img_width : '50%' },
         flexShrink: 1,
         display: 'flex',
         justifyContent: 'center',
@@ -85,7 +85,7 @@ function TwoBox({ title, img, text, img_left, main }) {
     <Box
       sx={{
         p: 2,
-        width: { xs: '100%', md: text_width },
+        width: { xs: '100%', md: main === undefined ? text_width : '50%' },
         flexWrap: 'wrap',
         textAlign: 'left',
         display: 'flex',

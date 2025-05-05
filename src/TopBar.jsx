@@ -23,11 +23,6 @@ export default function TopBar({ darkMode, setDarkMode }) {
           }}
         >
           <Box>
-            <Link variant="h6" color="inherit" underline="none" href="/">
-              LiamPattinson.com
-            </Link>
-          </Box>
-          <Box>
             <IconButton href="/#/home">
               <Home />
             </IconButton>

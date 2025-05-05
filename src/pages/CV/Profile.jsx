@@ -38,13 +38,13 @@ function Profile() {
   let text = (
     <>
       <Typography
-        variant="h3"
+        variant="h5"
         sx={{ width: '100%', mb: 3, fontWeight: 'light' }}
       >
         Research Software Engineer
       </Typography>
       <Typography
-        variant="h3"
+        variant="h5"
         sx={{ width: '100%', mb: 3, fontWeight: 'light' }}
       >
         University of York Plasma Institute
