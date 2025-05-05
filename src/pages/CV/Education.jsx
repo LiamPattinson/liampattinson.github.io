@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
+import ClareCollegeImg from '../../assets/clare_college.jpg';
 import { Paragraph, TwoBox } from './layout.jsx';
 
 function EducationItem({ state, handler, degree, dates, grade, children }) {
@@ -164,7 +165,7 @@ function Education() {
 
   let img = (
     <img
-      src="/src/assets/clare_college.jpg"
+      src={ClareCollegeImg}
       style={{
         maxWidth: '100%',
         maxHeight: '100%',

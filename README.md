@@ -1,4 +1,4 @@
-# liampattinson-site
+# liampattinson.github.com
 
 My personal webpage, and a space I'm using to learn web-dev.
 
@@ -19,17 +19,18 @@ To install all dependencies, use:
 yarn install
 ```
 
-Using [Vite](https://vite.dev/), a local version of the site can be deployed
-with:
+Using [Vite](https://vite.dev/), a local development version of the site can be
+deployed with:
 
 ```bash
 yarn dev
 ```
 
-A production build can be created with:
+A production build can be created and previewed with:
 
 ```bash
 yarn build
+yarn preview
 ```
 
 The code is linted with [ESLint](https://eslint.org/) and formatted with

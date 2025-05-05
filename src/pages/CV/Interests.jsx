@@ -12,6 +12,8 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
+import ArcheryImg from '../../assets/archery.jpg';
+import WarhammerImg from '../../assets/ultramarines_phobos_librarian.jpg';
 import { TwoBox } from './layout.jsx';
 
 function InterestsCategory({ state, handler, bullet, interest, children }) {
@@ -75,7 +77,7 @@ function Interests() {
     <ImageList cols={1}>
       <ImageListItem>
         <img
-          src="/src/assets/archery.jpg"
+          src={ArcheryImg}
           style={{
             maxWidth: '100%',
             maxHeight: '100%',
@@ -86,7 +88,7 @@ function Interests() {
       </ImageListItem>
       <ImageListItem>
         <img
-          src="/src/assets/ultramarines_phobos_librarian.jpg"
+          src={WarhammerImg}
           style={{
             maxWidth: '100%',
             maxHeight: '100%',

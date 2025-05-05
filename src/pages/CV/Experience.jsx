@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
+import UniOfYorkImg from '../../assets/uni_of_york.jpg';
 import { Paragraph, TwoBox } from './layout.jsx';
 
 function ExperienceItem({
@@ -140,7 +141,7 @@ function Experience() {
 
   let img = (
     <img
-      src="/src/assets/uni_of_york.jpg"
+      src={UniOfYorkImg}
       style={{
         maxWidth: '100%',
         maxHeight: '100%',

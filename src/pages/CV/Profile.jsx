@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 
 import OrcidSvg from '../../assets/orcid.svg';
+import ProfileImg from '../../assets/profile.png';
 import { TwoBox } from './layout.jsx';
 
 function ContactItem({ primary, secondary, href, icon }) {
@@ -25,7 +26,7 @@ function ContactItem({ primary, secondary, href, icon }) {
 function Profile() {
   let img = (
     <img
-      src="/src/assets/profile.png"
+      src={ProfileImg}
       style={{
         maxWidth: '100%',
         maxHeight: '100%',
