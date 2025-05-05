@@ -1,4 +1,9 @@
-import { DoubleArrow, ExpandLess, ExpandMore } from '@mui/icons-material';
+import {
+  ArrowForward,
+  DoubleArrow,
+  ExpandLess,
+  ExpandMore,
+} from '@mui/icons-material';
 import {
   Collapse,
   List,
@@ -12,21 +17,9 @@ import { useState } from 'react';
 
 import { Paragraph, TwoBox } from './layout.jsx';
 
-function EducationItem({ state, handler, degree, dates, grade, description }) {
-  // If a description is needed, also add state and handler.
-  // If not, just add the degree, dates, and grade.
-  const has_description = description !== undefined;
+function EducationItem({ state, handler, degree, dates, grade, children }) {
   let list_item = (
-    <ListItemButton
-      onClick={handler}
-      disableRipple={!has_description}
-      sx={{
-        cursor: has_description ? 'pointer' : 'default',
-        '&:hover': {
-          backgroundColor: has_description ? 'action.hover' : 'inherit',
-        },
-      }}
-    >
+    <ListItemButton onClick={handler}>
       <ListItem>
         <ListItemIcon>
           <DoubleArrow />
@@ -35,7 +28,7 @@ function EducationItem({ state, handler, degree, dates, grade, description }) {
         <Typography variant="caption" sx={{ fontWeight: 'light', mr: 1 }}>
           {grade}
         </Typography>
-        {has_description ? state ? <ExpandLess /> : <ExpandMore /> : null}
+        {state ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
     </ListItemButton>
   );
@@ -44,24 +37,44 @@ function EducationItem({ state, handler, degree, dates, grade, description }) {
       {list_item}
       <Collapse in={state} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem>
-            <ListItemText primary={description} />
-          </ListItem>
+          {children}
         </List>
       </Collapse>
     </>
   );
 }
 
+function EducationDescription({ bullet, children }) {
+  bullet = bullet !== undefined ? <ArrowForward /> : null;
+  return (
+    <ListItem>
+      <ListItemIcon>{bullet}</ListItemIcon>
+      <ListItemText primary={children} />
+    </ListItem>
+  );
+}
+
 function Education() {
   const [phdOpen, setPhdOpen] = useState(false);
   const [mphilOpen, setMphilOpen] = useState(false);
+  const [msciOpen, setMsciOpen] = useState(false);
+  const [maOpen, setMaOpen] = useState(false);
+  const [otherOpen, setOtherOpen] = useState(false);
 
   const handlePhd = () => {
     setPhdOpen((prev) => !prev);
   };
   const handleMphil = () => {
     setMphilOpen((prev) => !prev);
+  };
+  const handleMsci = () => {
+    setMsciOpen((prev) => !prev);
+  };
+  const handleMa = () => {
+    setMaOpen((prev) => !prev);
+  };
+  const handleOther = () => {
+    setOtherOpen((prev) => !prev);
   };
 
   let phdDescription = (
@@ -112,6 +125,35 @@ function Education() {
     </>
   );
 
+  let msciDescription = (
+    <>
+      <Paragraph>
+        The MSci in Natural Sciences (Physics) at the University of Cambridge
+        provided me with a stronger foundation in physics, mathematics, and
+        computational methods.
+      </Paragraph>
+      <Paragraph>
+        For my final year project, I worked with British Antarctic Survey to
+        study radiation belt physics using POES satellite data.
+      </Paragraph>
+    </>
+  );
+
+  let maDescription = (
+    <>
+      <Paragraph>
+        The BA in Natural Sciences (Physics) at the University of Cambridge,
+        later upgraded to an MA, provided me with a foundation in physics,
+        mathematics, and computational methods.
+      </Paragraph>
+      <Paragraph>
+        In my first year, I studied mathematics, physics, chemistry, and
+        computer science. From my second year onwards, I focused on physics and
+        mathematics, with a particular interest in computational physics.
+      </Paragraph>
+    </>
+  );
+
   let img = (
     <img
       src="/src/assets/clare_college.jpg"
@@ -132,26 +174,59 @@ function Education() {
         degree="PhD Scientific Computing"
         grade="Corrections Ongoing"
         dates="2016 - 2021"
-        description={phdDescription}
-      />
+      >
+        <EducationDescription>{phdDescription}</EducationDescription>
+      </EducationItem>
       <EducationItem
         state={mphilOpen}
         handler={handleMphil}
         degree="MPhil Scientific Computing"
         grade="Distinction"
         dates="2015 - 2016"
-        description={mphilDescription}
-      />
+      >
+        <EducationDescription>{mphilDescription}</EducationDescription>
+      </EducationItem>
       <EducationItem
+        state={msciOpen}
+        handler={handleMsci}
         degree="MSci Natural Sciences (Physics)"
         grade="Upper Second Class"
         dates="2014 - 2015"
-      />
+      >
+        <EducationDescription>{msciDescription}</EducationDescription>
+      </EducationItem>
       <EducationItem
+        state={maOpen}
+        handler={handleMa}
         degree="MA (CANTAB) Natural Sciences (Physics)"
         grade="First Class"
         dates="2011 - 2014"
-      />
+      >
+        <EducationDescription>{maDescription}</EducationDescription>
+      </EducationItem>
+      <EducationItem
+        state={otherOpen}
+        handler={handleOther}
+        degree="Other Training"
+      >
+        <EducationDescription bullet>
+          <Typography variant="body1" sx={{ fontWeight: 'light' }}>
+            2025 (ongoing): Attending a course on neural networks with PyTorch.
+          </Typography>
+        </EducationDescription>
+        <EducationDescription bullet>
+          <Typography variant="body1" sx={{ fontWeight: 'light' }}>
+            2022-Present: Regular attendee of Archer2 training courses on topics
+            such as OpenMP, MPI, GPU programming, and performance analysis.
+          </Typography>
+        </EducationDescription>
+        <EducationDescription bullet>
+          <Typography variant="body1" sx={{ fontWeight: 'light' }}>
+            2018-2019: Completed online courses by Andrew Ng on Coursera. on
+            machine learning and neural networks using TensorFlow and Keras.
+          </Typography>
+        </EducationDescription>
+      </EducationItem>
     </List>
   );
 
