@@ -75,7 +75,7 @@ function Skills() {
   let javascriptDescription = `Beginner level. Comfortable with React, and having fun figuring things out.
     Used it to write this!`;
   return (
-    <CentreBox title="Skills">
+    <CentreBox title="Technical Skills">
       <List>
         <SkillCategory
           state={languagesOpen}

@@ -102,6 +102,14 @@ function Education() {
         experience in modern C++ programming and the use of Python for data
         analysis and visualisation.
       </Paragraph>
+      <Paragraph>
+        I also gained valuable teaching experience working with undergraduate
+        students between 2016 and 2018, where I conducted small-group
+        mathematics supervisions and assisted with practical classes for
+        programming in C++. In 2018 and 2019, I also supported practical
+        sessions for the Advanced Programming in C++ course, part of the MPhil
+        in Scientific Computing programme.
+      </Paragraph>
     </>
   );
 
