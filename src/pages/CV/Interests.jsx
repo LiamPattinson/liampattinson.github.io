@@ -1,11 +1,8 @@
-import {
-  ArrowForward,
-  DoubleArrow,
-  ExpandLess,
-  ExpandMore,
-} from '@mui/icons-material';
+import { ArrowForward, ExpandLess, ExpandMore } from '@mui/icons-material';
 import {
   Collapse,
+  ImageList,
+  ImageListItem,
   List,
   ListItem,
   ListItemButton,
@@ -15,7 +12,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
-import { Paragraph, TwoBox } from './layout.jsx';
+import { TwoBox } from './layout.jsx';
 
 function InterestsCategory({ state, handler, bullet, interest, children }) {
   let list_item = (
@@ -75,15 +72,30 @@ function Interests() {
   };
 
   let img = (
-    <img
-      src="/src/assets/archery.jpg"
-      style={{
-        maxWidth: '100%',
-        maxHeight: '100%',
-        objectFit: 'contain',
-      }}
-      alt="Archery at Churchill College, Cambridge"
-    />
+    <ImageList cols={1}>
+      <ImageListItem>
+        <img
+          src="/src/assets/archery.jpg"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain',
+          }}
+          alt="Archery at Churchill College, Cambridge"
+        />
+      </ImageListItem>
+      <ImageListItem>
+        <img
+          src="/src/assets/ultramarines_phobos_librarian.jpg"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain',
+          }}
+          alt="A Phobos Librarian from Warhammer 40k"
+        />
+      </ImageListItem>
+    </ImageList>
   );
 
   let text = (
