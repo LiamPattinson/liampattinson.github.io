@@ -97,7 +97,7 @@ export default function Home() {
             src="https://opengraph.githubassets.com/%3Cany_hash_number%3E/PlasmaFAIR/Fortitude"
             border="1px solid black"
             style={{ maxHeight: '100%', maxWidth: '100%', flexShrink: 1 }}
-            alt="Fortitude repository"
+            alt="Fortitude repository (image may not render if too many requests are made)"
           />
         </Button>
       </HomePageImages>

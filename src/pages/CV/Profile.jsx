@@ -25,7 +25,7 @@ function ContactItem({ primary, secondary, href, icon }) {
 function Profile() {
   let img = (
     <img
-      src="/src/assets/profile.jpg"
+      src="/src/assets/profile.png"
       style={{
         maxWidth: '100%',
         maxHeight: '100%',
