@@ -16,11 +16,14 @@ function Paragraph({ children }) {
 }
 
 function Heading({ main, children }) {
-  let variant = main !== undefined ? 'h2' : 'h3';
   return (
     <Typography
-      variant={variant}
-      sx={{ width: '100%', mb: 2, fontWeight: 'light' }}
+      sx={{
+        width: '100%',
+        mb: 2,
+        fontWeight: 'light',
+        typography: main !== undefined ? { xs: 'h2', md: 'h1' } : 'h3',
+      }}
     >
       {children}
     </Typography>
@@ -28,7 +31,7 @@ function Heading({ main, children }) {
 }
 
 function BaseBox({ maxWidth, children }) {
-  maxWidth = maxWidth || '80em';
+  maxWidth = maxWidth || '70em';
   return (
     <Box
       sx={{
