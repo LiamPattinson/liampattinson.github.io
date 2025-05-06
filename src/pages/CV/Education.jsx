@@ -89,7 +89,7 @@ function Education() {
       </Paragraph>
       <Paragraph>
         My research extended Finite-Difference Time-Domain (FDTD) methods by
-        integrating Edelvik's thin-wire model with Bérenger's multiwire method.
+        integrating Edelvik's thin-wire model with Bérenger's multi-wire method.
         This enhanced model enabled the simulation of arbitrary wire
         arrangements with spacings smaller than the FDTD cell size, supported
         coupling with Convolutional Perfectly Matched Layer (CPML) boundary
@@ -98,7 +98,7 @@ function Education() {
       </Paragraph>
       <Paragraph>
         It was during my PhD that I developed a strong interest in research
-        software engineerings, particularly in the areas of computational
+        software engineering, particularly in the areas of computational
         physics, and high-performance computing. I also gained extensive
         experience in modern C++ programming and the use of Python for data
         analysis and visualisation.
