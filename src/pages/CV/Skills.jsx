@@ -103,6 +103,14 @@ function Skills() {
             secondary="Automation, continuous integration."
           />
           <SkillItem
+            primary="Docker"
+            secondary="Containerisation and reproducibility."
+          />
+          <SkillItem
+            primary="Apptainer"
+            secondary="Containerisation on HPC systems."
+          />
+          <SkillItem
             primary="readthedocs"
             secondary="Automated documentation hosting."
           />

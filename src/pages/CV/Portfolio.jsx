@@ -144,7 +144,7 @@ function Portfolio() {
           handler={handleFortitude}
           project="Fortitude"
           organisation="PlasmaFAIR"
-          description="A Fortran linter, written in Rust"
+          description="A modern Fortran linter, written in Rust"
           long_description={fortitudeDescription}
         />
         <PortfolioItem

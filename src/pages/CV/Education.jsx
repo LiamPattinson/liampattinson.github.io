@@ -207,7 +207,7 @@ function Education() {
       <EducationItem
         state={maOpen}
         handler={handleMa}
-        degree="MA (CANTAB) Natural Sciences (Physics)"
+        degree="MA (Cantab) Natural Sciences (Physics)"
         grade="First Class"
         dates="2011 - 2014"
       >
