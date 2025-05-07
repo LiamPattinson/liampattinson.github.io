@@ -18,9 +18,12 @@
     "@emotion/styled": "^11.x.x",
     "@mui/icons-material": "^5.x.x",
     "@mui/material": "^5.x.x",
+    "gray-matter": "^4.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.5.3"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.5.3",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -37,7 +40,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "prettier": "^3.0.0",
-    "vite": "^6.3.1"
+    "vite": "^6.3.1",
+    "vite-plugin-node-polyfills": "^0.23.0"
   },
   "lint-staged": {
     "*.{js,jsx}": [
