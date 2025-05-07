@@ -11,14 +11,14 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "blog": "node scripts/update_blog.js"
   },
   "dependencies": {
     "@emotion/react": "^11.x.x",
     "@emotion/styled": "^11.x.x",
     "@mui/icons-material": "^5.x.x",
     "@mui/material": "^5.x.x",
-    "gray-matter": "^4.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
@@ -37,11 +37,11 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "globals": "^16.0.0",
+    "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "prettier": "^3.0.0",
-    "vite": "^6.3.1",
-    "vite-plugin-node-polyfills": "^0.23.0"
+    "vite": "^6.3.1"
   },
   "lint-staged": {
     "*.{js,jsx}": [
