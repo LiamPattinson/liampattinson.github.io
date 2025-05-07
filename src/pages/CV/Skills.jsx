@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
-import { CentreBox, Paragraph } from './layout.jsx';
+import { CentreBox } from './components.jsx';
 
 function SkillItem({ primary, secondary }) {
   return (

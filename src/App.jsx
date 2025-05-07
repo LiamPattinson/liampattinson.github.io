@@ -2,6 +2,7 @@ import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
+import Blog from './pages/Blog.jsx';
 import CV from './pages/CV.jsx';
 import Home from './pages/Home.jsx';
 import TopBar from './TopBar.jsx';
@@ -69,6 +70,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cv" element={<CV />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </Box>
       </ThemeProvider>

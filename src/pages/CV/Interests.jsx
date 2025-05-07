@@ -14,7 +14,7 @@ import { useState } from 'react';
 
 import ArcheryImg from '../../assets/archery.jpg';
 import WarhammerImg from '../../assets/ultramarines_phobos_librarian.jpg';
-import { TwoBox } from './layout.jsx';
+import { TwoBox } from './components.jsx';
 
 function InterestsCategory({ state, handler, bullet, interest, children }) {
   let list_item = (

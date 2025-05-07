@@ -1,11 +1,16 @@
-import { Description as CV, GitHub, Home } from '@mui/icons-material';
+import {
+  Description as CV,
+  GitHub,
+  Home,
+  ListAlt as Blog,
+} from '@mui/icons-material';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import DarkModeToggle from './DarkMode.jsx';
+import DarkModeToggle from './DarkModeToggle.jsx';
 
-export default function TopBar({ darkMode, setDarkMode }) {
+function TopBar({ darkMode, setDarkMode }) {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
 
@@ -66,6 +71,9 @@ export default function TopBar({ darkMode, setDarkMode }) {
             <TopBarIconButton href="/cv">
               <CV />
             </TopBarIconButton>
+            <TopBarIconButton href="/blog">
+              <Blog />
+            </TopBarIconButton>
           </Box>
           <Box>
             <IconButton href="https://www.github.com/LiamPattinson">
@@ -78,3 +86,5 @@ export default function TopBar({ darkMode, setDarkMode }) {
     </AppBar>
   );
 }
+
+export default TopBar;

@@ -16,7 +16,8 @@ import {
 import { useState } from 'react';
 
 import ClareCollegeImg from '../../assets/clare_college.jpg';
-import { Paragraph, TwoBox } from './layout.jsx';
+import { Paragraph } from '../../core_components.jsx';
+import { TwoBox } from './components.jsx';
 
 function EducationItem({ state, handler, degree, dates, grade, children }) {
   let list_item = (

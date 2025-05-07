@@ -10,7 +10,7 @@ import {
 
 import OrcidSvg from '../../assets/orcid.svg';
 import ProfileImg from '../../assets/profile.png';
-import { TwoBox } from './layout.jsx';
+import { TwoBox } from './components.jsx';
 
 function ContactItem({ primary, secondary, href, icon }) {
   return (
