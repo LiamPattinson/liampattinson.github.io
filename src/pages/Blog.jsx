@@ -1,6 +1,7 @@
 import { DoubleArrow } from '@mui/icons-material';
 import {
   Box,
+  Button,
   Card,
   Divider,
   List,
@@ -19,8 +20,10 @@ import { BaseBox, Error404, Heading } from '../core_components';
 import articles from './Blog/articles.jsx';
 
 // TODO:
-// - Back button to return to the blog index page.
+// - Sort articles by date.
 // - Provide prev/next navigation buttons at the bottom of each page.
+// - Add sidebar with links to all articles. Could be tricky on mobile.
+// - Add tags to articles and allow filtering.
 
 function toDate(dateStr) {
   let date = new Date(dateStr);
@@ -65,10 +68,28 @@ function BlogEntry({ title, subtitle, published, children }) {
             display: 'flex',
             flexShrink: 1,
             flexDirection: 'column',
+            mb: 4,
           }}
         >
           {children}
         </Box>
+        <Divider variant="middle" flexItem aria-hidden="true" />
+        {/* card that contains the "Back to blog" button
+         * TODO: Add prev/next buttons here too
+         */}
+        <Card
+          sx={{
+            p: 2,
+            width: '100%',
+            textAlign: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            flexShrink: 1,
+            flexDirection: 'column',
+          }}
+        >
+          <Button href="#/blog">Back to blog</Button>
+        </Card>
       </Card>
     </BaseBox>
   );
