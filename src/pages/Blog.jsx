@@ -59,7 +59,7 @@ function BlogEntry({ title, subtitle, published, children }) {
     <BaseBox>
       <Card variant="outlined" sx={{ maxWidth: '100%' }}>
         {heading}
-        <Divider variant="middle" flexItem sx={{ mb: 4 }} aria-hidden="true" />
+        <Divider variant="middle" flexItem aria-hidden="true" />
         <Box
           sx={{
             p: 2,
