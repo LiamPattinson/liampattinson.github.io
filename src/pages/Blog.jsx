@@ -1,17 +1,35 @@
-import { Box, Card, Divider, Typography } from '@mui/material';
+import { DoubleArrow } from '@mui/icons-material';
+import {
+  Box,
+  Card,
+  Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 import Markdown from 'react-markdown';
+import { Route, Routes } from 'react-router-dom';
 import { Prism } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { BaseBox, Heading } from '../core_components';
+import { BaseBox, Error404, Heading } from '../core_components';
 import articles from './Blog/articles.jsx';
 
 // TODO:
-// - Each blog post should be its own page under ./Blog
-// - The front page should be a list of all the blog posts.
-// - The blog post URL should be /blog/yyyymmdd-title
-// - Each blog post should have a proper date
+// - Back button to return to the blog index page.
 // - Provide prev/next navigation buttons at the bottom of each page.
+
+function toDate(dateStr) {
+  let date = new Date(dateStr);
+  return date.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 
 function BlogEntry({ title, subtitle, published, children }) {
   let heading = (
@@ -30,7 +48,7 @@ function BlogEntry({ title, subtitle, published, children }) {
         {subtitle}
       </Typography>
       <Typography variant="caption" sx={{ fontWeight: 'light', mb: 1 }}>
-        Published: {published}
+        Published: {toDate(published)}
       </Typography>
     </Box>
   );
@@ -69,20 +87,87 @@ function highlight_syntax(props) {
   );
 }
 
-function Blog() {
+function BlogPages() {
   return (
-    <>
-      {articles.map((md, idx) => (
-        <span key={idx}>
-          <BlogEntry key={idx} {...md.data}>
-            <Markdown components={{ code: highlight_syntax }}>
-              {md.content}
-            </Markdown>
-          </BlogEntry>
-        </span>
+    <Routes>
+      {articles.map((article, idx) => (
+        <Route
+          key={idx}
+          path={`${article.stem}`}
+          element={
+            <BlogEntry key={idx} {...article.markdown.data}>
+              <Markdown components={{ code: highlight_syntax }}>
+                {article.markdown.content}
+              </Markdown>
+            </BlogEntry>
+          }
+        />
       ))}
-    </>
+      <Route path="*" element={<Error404 />} />
+    </Routes>
   );
 }
 
-export default Blog;
+function Blog() {
+  return (
+    <BaseBox>
+      <Box
+        sx={{
+          p: 2,
+          width: '100%',
+          maxWidth: '50em',
+          textAlign: 'center',
+          display: 'flex',
+          flexShrink: 1,
+          flexDirection: 'column',
+        }}
+      >
+        <Card variant="outlined" sx={{ textAlign: 'left', maxWidth: '100%' }}>
+          <Box sx={{ mt: 2 }}>
+            <Heading centred>Blog</Heading>
+          </Box>
+          <Divider variant="middle" flexItem aria-hidden="true" />
+          <Typography variant="h6" sx={{ fontWeight: 'light', p: 4 }}>
+            Welcome to my blog! Here I'll be jotting down whatever interests me
+            at the time -- mainly programming, but maybe some other topics too.
+          </Typography>
+          <Divider variant="middle" flexItem aria-hidden="true" />
+          <Box
+            sx={{
+              ml: { xs: 1, md: 4 },
+              mr: { xs: 1, md: 4 },
+            }}
+          >
+            <List>
+              {articles.map((article, idx) => (
+                <ListItemButton
+                  key={idx}
+                  href={`#/blog/${article.stem}`}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    textAlign: 'left',
+                    width: '100%',
+                  }}
+                >
+                  <ListItem sx={{ width: '100%' }}>
+                    <ListItemIcon>
+                      <DoubleArrow />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={article.markdown.data.title}
+                      secondary={article.markdown.data.subtitle}
+                    />
+                    {toDate(article.markdown.data.published)}
+                  </ListItem>
+                </ListItemButton>
+              ))}
+            </List>
+          </Box>
+        </Card>
+      </Box>
+    </BaseBox>
+  );
+}
+
+export { Blog, BlogPages };

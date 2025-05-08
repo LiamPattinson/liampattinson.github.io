@@ -3,8 +3,9 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-let articles = [];
+let markdowns = [];
 let imports = [];
+let stems = [];
 
 for (const fileName of fs.readdirSync('blog')) {
   const [stem, ext] = fileName.split('.');
@@ -14,9 +15,10 @@ for (const fileName of fs.readdirSync('blog')) {
       `src/pages/Blog/articles/${stem}.json`,
       JSON.stringify(file)
     );
-    const article = `article_${stem.replace(/[- ]/g, '_')}`;
-    articles.push(article);
-    imports.push(`import ${article} from './articles/${stem}.json';`);
+    const markdown = `article_${stem.replace(/[- ]/g, '_')}`;
+    markdowns.push(markdown);
+    imports.push(`import ${markdown} from './articles/${stem}.json';`);
+    stems.push(stem);
   }
 }
 
@@ -26,9 +28,15 @@ const articles_js = `
 ${imports.join('\n')}
 
 const articles = [
-  ${articles.join(',\n  ')},
+  ${markdowns
+    .map((markdown, i) => {
+      let entry = `{'markdown': ${markdown}, 'stem': '${stems[i]}'}`;
+      return entry;
+    })
+    .join(',\n  ')},
 ];
 
 export default articles;
 `;
+
 fs.writeFileSync(`src/pages/Blog/articles.jsx`, articles_js);

@@ -41,14 +41,15 @@ function Paragraph({ children }) {
   );
 }
 
-function Heading({ main, children }) {
+function Heading({ main, centred, children }) {
   return (
     <Typography
       sx={{
         width: '100%',
         mb: 2,
         fontWeight: 'light',
-        typography: main !== undefined ? { xs: 'h2', md: 'h1' } : 'h3',
+        textAlign: centred ? 'center' : 'left',
+        typography: main ? { xs: 'h2', md: 'h1' } : 'h3',
       }}
     >
       {children}
@@ -56,4 +57,12 @@ function Heading({ main, children }) {
   );
 }
 
-export { BaseBox, Heading, Paragraph };
+function Error404() {
+  return (
+    <BaseBox>
+      <Heading>404: Page not found</Heading>
+    </BaseBox>
+  );
+}
+
+export { BaseBox, Error404, Heading, Paragraph };
