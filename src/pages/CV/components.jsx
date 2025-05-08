@@ -1,64 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+
+import { BaseBox, Heading } from '../../core_components';
 
 const golden_ratio = 1.6180339887;
 const img_width = `${100 - 100 / golden_ratio}%`;
 const text_width = `${100 / golden_ratio}%`;
-
-function Paragraph({ children }) {
-  return (
-    <Typography
-      variant="body1"
-      sx={{ mb: 2, textAlign: 'justify', fontWeight: 'light' }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
-function Heading({ main, children }) {
-  return (
-    <Typography
-      sx={{
-        width: '100%',
-        mb: 2,
-        fontWeight: 'light',
-        typography: main !== undefined ? { xs: 'h2', md: 'h1' } : 'h3',
-      }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
-function BaseBox({ maxWidth, children }) {
-  maxWidth = maxWidth || '70em';
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100%',
-        p: 2,
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          width: '100%',
-          maxWidth: { maxWidth },
-          height: 'auto',
-          textAlign: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          flexDirection: { xs: 'column', md: 'row' },
-        }}
-      >
-        {children}
-      </Box>
-    </Box>
-  );
-}
 
 function TwoBox({ title, img, text, img_left, main }) {
   let img_box = (
@@ -128,4 +74,4 @@ function CentreBox({ title, children }) {
   );
 }
 
-export { CentreBox, Paragraph, TwoBox };
+export { CentreBox, TwoBox };

@@ -2,6 +2,8 @@ import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
+import { Error404 } from './core_components.jsx';
+import { Blog, BlogPages } from './pages/Blog.jsx';
 import CV from './pages/CV.jsx';
 import Home from './pages/Home.jsx';
 import TopBar from './TopBar.jsx';
@@ -63,12 +65,15 @@ function App() {
         ></link>
         <link rel="manifest" href="/site.webmanifest"></link>
         <TopBar darkMode={darkMode} setDarkMode={setDarkMode} />
+        {/* Add margin to account for the AppBar */}
         <Box sx={{ mt: 10, mb: 5 }}>
-          {/* Margin to account for the AppBar */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cv" element={<CV />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/*" element={<BlogPages />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </Box>
       </ThemeProvider>

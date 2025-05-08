@@ -11,7 +11,8 @@ import {
 import { useState } from 'react';
 
 import UniOfYorkImg from '../../assets/uni_of_york.jpg';
-import { Paragraph, TwoBox } from './layout.jsx';
+import { Paragraph } from '../../core_components.jsx';
+import { TwoBox } from './components.jsx';
 
 function ExperienceItem({
   state,

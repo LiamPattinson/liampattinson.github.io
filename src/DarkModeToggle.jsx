@@ -59,7 +59,7 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export default function DarkModeToggle({ darkMode, setDarkMode }) {
+function DarkModeToggle({ darkMode, setDarkMode }) {
   return (
     <DarkModeSwitch
       checked={darkMode}
@@ -69,3 +69,5 @@ export default function DarkModeToggle({ darkMode, setDarkMode }) {
     />
   );
 }
+
+export default DarkModeToggle;

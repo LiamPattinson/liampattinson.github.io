@@ -10,7 +10,8 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
-import { CentreBox, Paragraph } from './layout.jsx';
+import { Paragraph } from '../../core_components.jsx';
+import { CentreBox } from './components.jsx';
 
 function PortfolioItem({
   state,
