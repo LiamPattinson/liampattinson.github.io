@@ -173,15 +173,10 @@ function Interests() {
       >
         <InterestsItem>
           I have been a regular runner since 2010, participating in events such
-          as the Cambridge Half-Marathon, which I have completed three times,
-          and numerous ParkRuns in York. Running has helped me develop
-          discipline, perseverance, and a strong focus on personal goals.
-        </InterestsItem>
-        <InterestsItem>
-          In addition to running, I engage in resistance training three to four
-          times a week to maintain strength and overall fitness. This routine
-          has taught me the importance of consistency and balancing different
-          aspects of physical health.
+          as the Cambridge Half-Marathon and numerous ParkRuns in York. I also
+          try to balance my running with a regular resistance training regime.
+          This has helped me develop discipline, perseverance, and a strong
+          focus on personal goals.
         </InterestsItem>
       </InterestsCategory>
       <InterestsCategory
@@ -199,8 +194,7 @@ function Interests() {
           I also enjoy nature photography, hiking, and exploring the outdoors. I
           frequently visit local RSPB reserves to capture wildlife and
           landscapes, and have recently enjoyed trips from the Yorkshire Coast
-          to the Lake District. In 2024, I completed the Yorkshire Three Peaks
-          Challenge in under 10 hours!
+          to the Lake District.
         </InterestsItem>
       </InterestsCategory>
     </List>

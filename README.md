@@ -47,3 +47,10 @@ linting:
 ```bash
 yarn format
 ```
+
+To add new blog posts, create a new markdown file in the top-level `blog/`
+directory, and run:
+
+```bash
+yarn blog
+```
