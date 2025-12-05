@@ -1,12 +1,40 @@
 import './logos.css';
 
-import { Description as CV, GitHub } from '@mui/icons-material';
-import { Box, Button, IconButton, SvgIcon, Typography } from '@mui/material';
+import {
+  Description as CV,
+  GitHub,
+  ListAlt as Blog,
+} from '@mui/icons-material';
+import {
+  Box,
+  Button,
+  IconButton,
+  SvgIcon,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 
 import muiLogo from '../assets/mui.svg';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
+
+function HomePageTitle() {
+  return (
+    <Box
+      sx={{
+        p: 2,
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Typography variant="h1" sx={{ p: 3, fontWeight: 'light' }}>
+        liampattinson.github.io
+      </Typography>
+    </Box>
+  );
+}
 
 function HomePageTextBox({ children }) {
   // 'children' should be a string delmited by newlines.
@@ -22,7 +50,12 @@ function HomePageTextBox({ children }) {
       }}
     >
       {children.split('\n').map((str, index) => (
-        <Typography key={index} variant="h4" sx={{ p: 3, fontWeight: 'light' }}>
+        <Typography
+          key={index}
+          variant="h4"
+          component="div"
+          sx={{ p: 3, fontWeight: 'light' }}
+        >
           {str}
         </Typography>
       ))}
@@ -73,48 +106,68 @@ export default function Home() {
   // work without the CSS file.
   return (
     <>
+      <HomePageTitle />
       <HomePageTextBox>
-        {'I made a website.\nKinda.\nThese things did most of the work:'}
+        {`Welcome to my personal website!\nI'm a research software engineer at the University of York.\nCheck out my GitHub profile, CV, and blog:`}
       </HomePageTextBox>
       <HomePageImages>
-        <IconButton href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo spin" alt="React logo" />
-        </IconButton>
-        <IconButton href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </IconButton>
-        <IconButton href="https://mui.com" target="_blank">
-          <img src={muiLogo} className="logo" alt="Material UI logo" />
-        </IconButton>
-      </HomePageImages>
-      <HomePageTextBox>{"Here's another cool thing I made:"}</HomePageTextBox>
-      <HomePageImages>
-        <Button
-          href="https://www.github.com/PlasmaFAIR/Fortitude"
-          target="_blank"
-        >
-          <img
-            src="https://opengraph.githubassets.com/%3Cany_hash_number%3E/PlasmaFAIR/Fortitude"
-            border="1px solid black"
-            style={{ maxHeight: '100%', maxWidth: '100%', flexShrink: 1 }}
-            alt="Fortitude repository (image may not render if too many requests are made)"
-          />
-        </Button>
+        <Tooltip title="GitHub">
+          <IconButton
+            href="https://github.com/LiamPattinson"
+            target="_blank"
+            aria-label="Link to GitHub profile"
+          >
+            <SvgIcon sx={{ width: '6em', height: '6em' }}>
+              <GitHub />
+            </SvgIcon>
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="CV">
+          <IconButton href="/#/cv" aria-label="Link to CV">
+            <SvgIcon sx={{ width: '6em', height: '6em' }}>
+              <CV />
+            </SvgIcon>
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Blog">
+          <IconButton href="/#/blog" aria-label="Link to blog">
+            <SvgIcon sx={{ width: '6em', height: '6em' }}>
+              <Blog />
+            </SvgIcon>
+          </IconButton>
+        </Tooltip>
       </HomePageImages>
       <HomePageTextBox>
-        {'Want to see more?\nCheck out my GitHub profile and CV:'}
+        {'Everything here was built using React, Vite, and Material UI:'}
       </HomePageTextBox>
       <HomePageImages>
-        <IconButton href="https://github.com/LiamPattinson" target="_blank">
-          <SvgIcon sx={{ width: '6em', height: '6em' }}>
-            <GitHub />
-          </SvgIcon>
-        </IconButton>
-        <IconButton href="/#/cv">
-          <SvgIcon sx={{ width: '6em', height: '6em' }}>
-            <CV />
-          </SvgIcon>
-        </IconButton>
+        <Tooltip title="React">
+          <IconButton
+            href="https://react.dev"
+            target="_blank"
+            aria-label="Link to React website"
+          >
+            <img src={reactLogo} className="logo spin" alt="React logo" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Vite">
+          <IconButton
+            href="https://vite.dev"
+            target="_blank"
+            aria-label="Link to Vite website"
+          >
+            <img src={viteLogo} className="logo" alt="Vite logo" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Material UI">
+          <IconButton
+            href="https://mui.com"
+            target="_blank"
+            aria-label="Link to Material UI website"
+          >
+            <img src={muiLogo} className="logo" alt="Material UI logo" />
+          </IconButton>
+        </Tooltip>
       </HomePageImages>
     </>
   );

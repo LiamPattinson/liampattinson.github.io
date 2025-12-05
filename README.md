@@ -5,6 +5,9 @@ My personal webpage, and a space I'm using to learn a little web-dev.
 This site uses [React](https://react.dev/) with assets from
 [Material UI](https://mui.com/material-ui/).
 
+I'm also using [WAVE](https://wave.webaim.org/) to ensure the website
+is designed with accessibility in mind.
+
 ## Usage
 
 I use [Yarn](https://yarnpkg.com/) to manage the project, but the steps below
