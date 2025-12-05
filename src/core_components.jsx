@@ -41,7 +41,7 @@ function Paragraph({ children }) {
   );
 }
 
-function Heading({ main, centred, children }) {
+function Heading({ variant, centred, children }) {
   return (
     <Typography
       sx={{
@@ -49,8 +49,8 @@ function Heading({ main, centred, children }) {
         mb: 2,
         fontWeight: 'light',
         textAlign: centred ? 'center' : 'left',
-        typography: main ? { xs: 'h2', md: 'h1' } : 'h3',
       }}
+      variant={variant || 'h1'}
     >
       {children}
     </Typography>

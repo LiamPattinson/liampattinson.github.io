@@ -42,7 +42,9 @@ function TwoBox({ title, img, text, img_left, main }) {
         order: img_left ? undefined : { xs: 2, md: 1 },
       }}
     >
-      <Heading main={main}>{title}</Heading>
+      <Heading variant={main ? 'h1' : 'h2'} centred>
+        {title}
+      </Heading>
       {text}
     </Box>
   );
@@ -54,10 +56,12 @@ function TwoBox({ title, img, text, img_left, main }) {
   );
 }
 
-function CentreBox({ title, children }) {
+function CentreBox({ title, children, main }) {
   return (
     <BaseBox maxWidth="50em">
-      <Heading>{title}</Heading>
+      <Heading variant={main ? 'h1' : 'h2'} centred>
+        {title}
+      </Heading>
       <Box
         sx={{
           p: 2,

@@ -18,7 +18,10 @@ import { TwoBox } from './components.jsx';
 
 function InterestsCategory({ state, handler, bullet, interest, children }) {
   let list_item = (
-    <ListItemButton onClick={handler}>
+    <ListItemButton
+      onClick={handler}
+      aria-label={`Expand '${interest}' details`}
+    >
       <ListItem>
         <ListItemIcon>{bullet}</ListItemIcon>
         <ListItemText primary={interest} />
@@ -94,7 +97,7 @@ function Interests() {
             maxHeight: '100%',
             objectFit: 'contain',
           }}
-          alt="A Phobos Librarian from Warhammer 40k"
+          alt="A hand painted miniature from Warhammer 40k"
         />
       </ImageListItem>
     </ImageList>
@@ -109,24 +112,15 @@ function Interests() {
         interest="Languages"
       >
         <InterestsItem>
-          I find language learning to be a rewarding and enriching experience. I
-          value the insights that come with learning a new language and believe
-          that consistency and patience are key to achieving proficiency over
-          time.
-        </InterestsItem>
-        <InterestsItem>
           Since 2023, I have been studying French through the University of
-          York's Languages for All programme. I have achieved a
-          lower-intermediate proficiency (CEFR A2+/B1) and plan to continue my
-          studies to a higher level.
+          York's Languages for All programme. I'm currently studying at an
+          intermediate level (CEFR B1+).
         </InterestsItem>
         <InterestsItem>
           I studied German to an upper-intermediate standard (CEFR B2) at the
           University of Cambridge Language Centre between 2017 and 2018.
-          Although my skills have become rusty, I took a short German short
-          course at the University of York in 2024 to refresh my knowledge, and
-          I'm keen to resume my studies after achieving a greater proficiency in
-          French.
+          Although my skills have since become rusty, I'm keen to resume my
+          studies after achieving a greater proficiency in French.
         </InterestsItem>
       </InterestsCategory>
       <InterestsCategory
@@ -138,8 +132,9 @@ function Interests() {
         <InterestsItem>
           Since taking up archery in 2015, I have been an active member of both
           Cambridge University Bowmen and the York Archers Society. In addition
-          to regularly practicing the sport, I have contributed these clubs by
-          taking on committee roles and assisting on beginners courses.
+          to regularly practicing the sport, I have contributed to these clubs
+          by taking on administrative committee roles, running tournaments and
+          teaching at beginners courses.
         </InterestsItem>
         <InterestsItem>
           I competed regularly for Cambridge University Bowmen, achieving
@@ -173,10 +168,9 @@ function Interests() {
       >
         <InterestsItem>
           I have been a regular runner since 2010, participating in events such
-          as the Cambridge Half-Marathon and numerous ParkRuns in York. I also
-          try to balance my running with a regular resistance training regime.
-          This has helped me develop discipline, perseverance, and a strong
-          focus on personal goals.
+          as the Cambridge Half-Marathon and numerous ParkRuns in York. I
+          recently took up bouldering, and also keep up a regular resistance
+          training regime.
         </InterestsItem>
       </InterestsCategory>
       <InterestsCategory
@@ -186,15 +180,12 @@ function Interests() {
         interest="Other Interests"
       >
         <InterestsItem>
-          I enjoy model making and painting, a hobby that requires patience,
-          precision, creativity, and attention to detail. In 2021, I earned a
-          bronze award at the online Miniature Painting Open.
+          I enjoy painting minis for tabletop wargames, and have gotten weirdly
+          good at it. If I ever find the time, I'll aim to add a gallery to this
+          site or make an Instagram account or something.
         </InterestsItem>
         <InterestsItem>
-          I also enjoy nature photography, hiking, and exploring the outdoors. I
-          frequently visit local RSPB reserves to capture wildlife and
-          landscapes, and have recently enjoyed trips from the Yorkshire Coast
-          to the Lake District.
+          I also enjoy nature photography, hiking, and exploring the outdoors.
         </InterestsItem>
       </InterestsCategory>
     </List>

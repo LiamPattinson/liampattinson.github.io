@@ -1,6 +1,6 @@
 # liampattinson.github.com
 
-My personal webpage, and a space I'm using to learn web-dev.
+My personal webpage, and a space I'm using to learn a little web-dev.
 
 This site uses [React](https://react.dev/) with assets from
 [Material UI](https://mui.com/material-ui/).
@@ -10,8 +10,8 @@ This site uses [React](https://react.dev/) with assets from
 I use [Yarn](https://yarnpkg.com/) to manage the project, but the steps below
 will also work by replacing `yarn` with `npm run`.
 
-All developer dependencies are listed in
-`package.json`, and setup for various tools can be found in `*.config.js` files.
+All developer dependencies are listed in `package.json`, and setup for various
+tools can be found in `*.config.js` files.
 
 To install all dependencies, use:
 
@@ -54,3 +54,13 @@ directory, and run:
 ```bash
 yarn blog
 ```
+
+## Q&A
+
+> Why not use [insert static site template] like a sensible person?
+
+It's more fun this way.
+
+## License
+
+All material licensed under [MIT](LICENSE).

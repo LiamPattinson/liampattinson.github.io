@@ -10,12 +10,13 @@ import {
 
 import OrcidSvg from '../../assets/orcid.svg';
 import ProfileImg from '../../assets/profile.png';
+import { Heading } from '../../core_components.jsx';
 import { TwoBox } from './components.jsx';
 
 function ContactItem({ primary, secondary, href, icon }) {
   return (
     <ListItem>
-      <ListItemButton href={href}>
+      <ListItemButton href={href} aria-label={`Link to ${primary}`}>
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText primary={primary} secondary={secondary} />
       </ListItemButton>
@@ -32,30 +33,22 @@ function Profile() {
         maxHeight: '100%',
         objectFit: 'contain',
       }}
-      alt="Profile image"
+      alt="Profile image of Liam Pattinson"
     />
   );
   let text = (
     <>
       <Typography
         variant="h5"
-        sx={{ width: '100%', mb: 3, fontWeight: 'light' }}
+        component="div"
+        sx={{ width: '100%', mb: 3, fontWeight: 'light', textAlign: 'center' }}
       >
         Research Software Engineer
-      </Typography>
-      <Typography
-        variant="h5"
-        sx={{ width: '100%', mb: 3, fontWeight: 'light' }}
-      >
+        <br />
         University of York Plasma Institute
       </Typography>
-      <Typography
-        variant="h5"
-        sx={{ width: '100%', mb: 1, fontWeight: 'light' }}
-      >
-        Contact:
-      </Typography>
-      <List dense="true">
+
+      <List dense={true}>
         <ContactItem
           primary="Email"
           secondary="liam.pattinson@york.ac.uk"
@@ -75,7 +68,8 @@ function Profile() {
           icon={
             <img
               src={OrcidSvg}
-              alt="ORCID"
+              alt=""
+              aria-hidden="true"
               style={{ width: '1.5em', height: '1.5em' }}
             />
           }
@@ -85,7 +79,13 @@ function Profile() {
     </>
   );
   return (
-    <TwoBox title="Liam Pattinson" img={img} text={text} img_left={true} main />
+    <TwoBox
+      title="Liam Pattinson"
+      img={img}
+      text={text}
+      img_left={false}
+      main
+    />
   );
 }
 

@@ -47,9 +47,7 @@ function BlogEntry({ title, subtitle, published, children }) {
       }}
     >
       <Heading>{title}</Heading>
-      <Typography variant="h6" sx={{ fontWeight: 'light', mb: 2 }}>
-        {subtitle}
-      </Typography>
+      <Heading variant="h2">{subtitle}</Heading>
       <Typography variant="caption" sx={{ fontWeight: 'light', mb: 1 }}>
         Published: {toDate(published)}
       </Typography>

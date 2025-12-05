@@ -34,6 +34,7 @@ function SkillCategory({ state, handler, category, children }) {
           textAlign: 'left',
           width: '100%',
         }}
+        aria-label={`Expand '${category}' details`}
       >
         <ListItem sx={{ width: '100%' }}>
           <ListItemText primary={category} />
@@ -60,20 +61,20 @@ function Skills() {
     setToolsOpen((prev) => !prev);
   };
 
-  let pythonDescription = `Expert level. Developed multiple packages and familiar with high-level
+  let pythonDescription = `Developed multiple packages and familiar with high-level
       language features, the standard library, the scientific ecosystem, and
       developer tooling.`;
-  let cppDescription = `Expert level. Comfortable with modern C++ features and idioms, template
+  let cppDescription = `Comfortable with modern C++ features and idioms, template
       metaprogramming, the STL, and parallelisation via OpenMP and MPI. Can
       additionally manage complex build systems using CMake.`;
-  let fortranDescription = `Intermediate level. Familiar with modern Fortran features, including the
+  let fortranDescription = `Familiar with modern Fortran features, including the
       use of modules, derived types, and parallelisation via OpenMP and MPI.
       Can additionally manage complex build systems using CMake.`;
-  let rustDescription = `Intermediate level. Used to develop the Fortitude linter. Familiar with
+  let rustDescription = `Used to develop the Fortitude linter. Familiar with
       the Rust ecosystem and idioms, and comfortable with developer tooling. No
       longer fighting the borrow checker!`;
-  let javascriptDescription = `Beginner level. Comfortable with React, and having fun figuring things out.
-    Used it to write this!`;
+  let javascriptDescription = `Beginner level, and having fun figuring things out.
+      Used it to create this webpage!`;
   return (
     <CentreBox title="Technical Skills">
       <List>
