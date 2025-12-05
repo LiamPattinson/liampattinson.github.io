@@ -26,7 +26,10 @@ function ExperienceItem({
   icon = icon || <DoubleArrow />;
   return (
     <>
-      <ListItemButton onClick={handler}>
+      <ListItemButton
+        onClick={handler}
+        aria-label={`Expand '${title}' details`}
+      >
         <ListItem>
           <ListItemIcon>{icon}</ListItemIcon>
           <ListItemText primary={title} secondary={organisation} />
@@ -128,14 +131,13 @@ function Experience() {
         Following the conclusion of my undergraduate studies, I undertook a
         summer internship at the British Antarctic Survey. During this time, I
         developed a model to predict the behavior of low-energy, low-altitude
-        electrons in the Earth's radiation belts. in the Earth's radiation
-        belts.
+        electrons in the Earth's radiation belts.
       </Paragraph>
       <Paragraph>
         This model was used to generate boundary conditions from POES satellite
         data for the British Antarctic Survey Radiation Belt Model simulation
-        code. My work primarily involved using the language IDL for data
-        processing and visualisation.
+        code. My work primarily used the language IDL for data processing and
+        visualisation.
       </Paragraph>
     </>
   );
@@ -182,7 +184,7 @@ function Experience() {
     </List>
   );
 
-  return <TwoBox title="Experience" img={img} text={text} img_left={true} />;
+  return <TwoBox title="Experience" img={img} text={text} img_left={false} />;
 }
 
 export default Experience;

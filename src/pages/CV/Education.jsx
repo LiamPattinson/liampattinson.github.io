@@ -21,7 +21,7 @@ import { TwoBox } from './components.jsx';
 
 function EducationItem({ state, handler, degree, dates, grade, children }) {
   let list_item = (
-    <ListItemButton onClick={handler}>
+    <ListItemButton onClick={handler} aria-label={`Expand ${degree} details`}>
       <ListItem>
         <ListItemIcon>
           <DoubleArrow />
@@ -61,7 +61,6 @@ function Education() {
   const [mphilOpen, setMphilOpen] = useState(false);
   const [msciOpen, setMsciOpen] = useState(false);
   const [maOpen, setMaOpen] = useState(false);
-  const [otherOpen, setOtherOpen] = useState(false);
 
   const handlePhd = () => {
     setPhdOpen((prev) => !prev);
@@ -75,9 +74,6 @@ function Education() {
   const handleMa = () => {
     setMaOpen((prev) => !prev);
   };
-  const handleOther = () => {
-    setOtherOpen((prev) => !prev);
-  };
 
   let phdDescription = (
     <>
@@ -89,28 +85,26 @@ function Education() {
         frequencies.
       </Paragraph>
       <Paragraph>
-        My research extended Finite-Difference Time-Domain (FDTD) methods by
-        integrating Edelvik's thin-wire model with Bérenger's multi-wire method.
-        This enhanced model enabled the simulation of arbitrary wire
-        arrangements with spacings smaller than the FDTD cell size, supported
-        coupling with Convolutional Perfectly Matched Layer (CPML) boundary
-        conditions, and accounted for frequency-dependent resistive losses in
-        wires.
+        My research extended thin-wire models within a Finite-Difference
+        Time-Domain (FDTD) framework to enable the simulation of arbitrary wire
+        arrangements with spacings smaller than the FDTD cell size. This model
+        also permitted coupling with Convolutional Perfectly Matched Layer
+        (CPML) boundary conditions, and accounted for frequency-dependent
+        resistive losses in wires.
       </Paragraph>
       <Paragraph>
         It was during my PhD that I developed a strong interest in research
         software engineering, particularly in the areas of computational
-        physics, and high-performance computing. I also gained extensive
-        experience in modern C++ programming and the use of Python for data
-        analysis and visualisation.
+        physics, and high-performance computing. I made extensive use of modern
+        C++ to develop my research software and Python for data analysis and
+        visualisation.
       </Paragraph>
       <Paragraph>
         I also gained valuable teaching experience working with undergraduate
         students between 2016 and 2018, where I conducted small-group
         mathematics supervisions and assisted with practical classes for
         programming in C++. In 2018 and 2019, I also supported practical
-        sessions for the Advanced Programming in C++ course, part of the MPhil
-        in Scientific Computing programme.
+        sessions for the course 'Advanced Programming in C++'.
       </Paragraph>
     </>
   );
@@ -214,33 +208,10 @@ function Education() {
       >
         <EducationDescription>{maDescription}</EducationDescription>
       </EducationItem>
-      <EducationItem
-        state={otherOpen}
-        handler={handleOther}
-        degree="Other Training"
-      >
-        <EducationDescription bullet>
-          <Typography variant="body1" sx={{ fontWeight: 'light' }}>
-            2025 (ongoing): Attending a course on neural networks with PyTorch.
-          </Typography>
-        </EducationDescription>
-        <EducationDescription bullet>
-          <Typography variant="body1" sx={{ fontWeight: 'light' }}>
-            2022-Present: Regular attendee of Archer2 training courses on topics
-            such as OpenMP, MPI, GPU programming, and performance analysis.
-          </Typography>
-        </EducationDescription>
-        <EducationDescription bullet>
-          <Typography variant="body1" sx={{ fontWeight: 'light' }}>
-            2018-2019: Completed online courses by Andrew Ng on Coursera. on
-            machine learning and neural networks using TensorFlow and Keras.
-          </Typography>
-        </EducationDescription>
-      </EducationItem>
     </List>
   );
 
-  return <TwoBox title="Education" img={img} text={text} img_left={false} />;
+  return <TwoBox title="Education" img={img} text={text} img_left={true} />;
 }
 
 export default Education;

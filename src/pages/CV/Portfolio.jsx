@@ -7,6 +7,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Tooltip,
 } from '@mui/material';
 import { useState } from 'react';
 
@@ -26,6 +27,7 @@ function PortfolioItem({
   let badge = (
     <img
       src={`https://img.shields.io/github/stars/${organisation}/${project_url}`}
+      alt={`${project} GitHub stars badge`}
     />
   );
   return (
@@ -39,12 +41,19 @@ function PortfolioItem({
           textAlign: 'left',
           width: '100%',
         }}
+        aria-label={`Expand '${project}' details`}
       >
         <ListItem sx={{ width: '100%' }}>
           <ListItemIcon>
-            <IconButton href={href} target="_blank">
-              <GitHub />
-            </IconButton>
+            <Tooltip title={`${project} GitHub Repository`}>
+              <IconButton
+                href={href}
+                target="_blank"
+                aria_label={`Link to ${project} GitHub repository`}
+              >
+                <GitHub />
+              </IconButton>
+            </Tooltip>
           </ListItemIcon>
           <ListItemText primary={project} secondary={description} />
           {badge}
