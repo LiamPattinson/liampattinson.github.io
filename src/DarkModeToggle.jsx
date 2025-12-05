@@ -1,6 +1,5 @@
-import { Switch } from '@mui/material';
+import { FormControlLabel, Switch, Tooltip } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import React from 'react';
 
 // Copied from MUI documentation
 const DarkModeSwitch = styled(Switch)(({ theme }) => ({
@@ -61,11 +60,22 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
 
 function DarkModeToggle({ darkMode, setDarkMode }) {
   return (
-    <DarkModeSwitch
-      checked={darkMode}
-      onChange={() => setDarkMode(!darkMode)}
-      size="large"
-      sx={{ m: 1 }}
+    <FormControlLabel
+      control={
+        <Tooltip
+          title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          <DarkModeSwitch
+            checked={darkMode}
+            onChange={() => setDarkMode(!darkMode)}
+            size="large"
+            sx={{ m: 1 }}
+            aria-label="Dark mode toggle"
+          />
+        </Tooltip>
+      }
+      label=""
+      aria-label="Dark mode toggle"
     />
   );
 }
