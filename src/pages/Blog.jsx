@@ -9,6 +9,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import Markdown from 'react-markdown';
@@ -40,7 +41,7 @@ function BlogEntry({ title, subtitle, published, children }) {
       sx={{
         p: 2,
         width: '100%',
-        textAlign: 'justify',
+        textAlign: 'left',
         display: 'flex',
         flexShrink: 1,
         flexDirection: 'column',
@@ -62,7 +63,7 @@ function BlogEntry({ title, subtitle, published, children }) {
           sx={{
             p: 2,
             width: '100%',
-            textAlign: 'justify',
+            textAlign: 'left',
             display: 'flex',
             flexShrink: 1,
             flexDirection: 'column',
@@ -146,7 +147,11 @@ function Blog() {
             <Heading centred>Blog</Heading>
           </Box>
           <Divider variant="middle" flexItem aria-hidden="true" />
-          <Typography variant="h6" sx={{ fontWeight: 'light', p: 4 }}>
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ fontWeight: 'light', p: 4 }}
+          >
             Welcome to my blog! Here I'll be jotting down whatever interests me
             at the time -- mainly programming, but maybe some other topics too.
           </Typography>
@@ -159,27 +164,30 @@ function Blog() {
           >
             <List>
               {articles.map((article, idx) => (
-                <ListItemButton
-                  key={idx}
-                  href={`#/blog/${article.stem}`}
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    textAlign: 'left',
-                    width: '100%',
-                  }}
-                >
-                  <ListItem sx={{ width: '100%' }}>
-                    <ListItemIcon>
-                      <DoubleArrow />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={article.markdown.data.title}
-                      secondary={article.markdown.data.subtitle}
-                    />
-                    {toDate(article.markdown.data.published)}
-                  </ListItem>
-                </ListItemButton>
+                <Tooltip title={article.markdown.data.title} key={idx}>
+                  <ListItemButton
+                    key={idx}
+                    href={`#/blog/${article.stem}`}
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      textAlign: 'left',
+                      width: '100%',
+                    }}
+                    aria-label={`Read blog post: ${article.markdown.data.title}`}
+                  >
+                    <ListItem sx={{ width: '100%' }}>
+                      <ListItemIcon>
+                        <DoubleArrow />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={article.markdown.data.title}
+                        secondary={article.markdown.data.subtitle}
+                      />
+                      {toDate(article.markdown.data.published)}
+                    </ListItem>
+                  </ListItemButton>
+                </Tooltip>
               ))}
             </List>
           </Box>
