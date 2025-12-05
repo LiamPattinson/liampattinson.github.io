@@ -4,7 +4,7 @@ import {
   Home,
   ListAlt as Blog,
 } from '@mui/icons-material';
-import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
+import { AppBar, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -27,22 +27,27 @@ function TopBar({ darkMode, setDarkMode }) {
   const highlight = (paths) =>
     paths.some((x) => x === currentPath) ? 'rgb(20, 146, 196)' : null;
 
-  const TopBarIconButton = ({ href, alts, children }) => {
+  const TopBarIconButton = ({ href, alts, label, children, external }) => {
     alts = alts ?? [];
     let paths = [...alts, href];
-    href = href.includes('/#') ? href : `/#${href}`;
+    if (external === undefined) {
+      href = href.includes('/#') ? href : `/#${href}`;
+    }
     return (
-      <IconButton
-        href={href}
-        sx={{
-          ml: { xs: 1, md: 2 },
-          mr: { xs: 1, md: 2 },
-          color: highlight(paths),
-          boxShadow: boxShadow(paths),
-        }}
-      >
-        {children}
-      </IconButton>
+      <Tooltip title={label}>
+        <IconButton
+          href={href}
+          sx={{
+            ml: { xs: 1, md: 2 },
+            mr: { xs: 1, md: 2 },
+            color: highlight(paths),
+            boxShadow: boxShadow(paths),
+          }}
+          aria-label={`Link to ${label}`}
+        >
+          {children}
+        </IconButton>
+      </Tooltip>
     );
   };
 
@@ -65,20 +70,24 @@ function TopBar({ darkMode, setDarkMode }) {
           }}
         >
           <Box>
-            <TopBarIconButton href="/home" alts={['/']}>
+            <TopBarIconButton href="/home" alts={['/']} label="Home">
               <Home />
             </TopBarIconButton>
-            <TopBarIconButton href="/cv">
+            <TopBarIconButton href="/cv" label="CV">
               <CV />
             </TopBarIconButton>
-            <TopBarIconButton href="/blog">
+            <TopBarIconButton href="/blog" label="Blog">
               <Blog />
             </TopBarIconButton>
           </Box>
           <Box>
-            <IconButton href="https://www.github.com/LiamPattinson">
+            <TopBarIconButton
+              href="https://www.github.com/LiamPattinson"
+              label="GitHub"
+              external
+            >
               <GitHub />
-            </IconButton>
+            </TopBarIconButton>
             <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
           </Box>
         </Box>
